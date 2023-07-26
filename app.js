@@ -1,10 +1,14 @@
-import express from 'express';
 import fs from 'fs';
 import path from 'path';
+import express from 'express';
+import 'dotenv/config';
 
 const app = express();
 const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif'] 
-const imageDir = './images/';
+const imageDir = process.env.IMAGE_DIR;
+const serverIP = process.env.SERVER_IP;
+const serverPort = process.env.SERVER_PORT;
+
 app.get('/', (req, res) => {
     fs.readdir(imageDir, (err, files) => {
         if (err) {
@@ -27,6 +31,6 @@ app.get('/', (req, res) => {
 
 app.use('/', express.static(imageDir)); // Serve the images as static files
 
-app.listen(3333, () => {
-   console.log('Server running at http://localhost:3333/');
+app.listen(serverPort, serverIP, () => {
+   console.log(`Server running at http://${serverIP}:${serverPort}/`);
 });
