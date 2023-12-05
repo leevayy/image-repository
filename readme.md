@@ -1,5 +1,7 @@
 # Simple express.js image-server
 
+<img width="283" alt="image" src="https://github.com/leevayy/image-server/assets/86363699/7bd4403c-9809-4154-b3b7-70da64ce37f9">
+
 ## How to run:
 
 1. Clone repository
